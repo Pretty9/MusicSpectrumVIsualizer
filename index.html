@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <style>
+        canvas {
+            position: absolute; 
+            left: 0px; 
+            bottom: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="wrap"></canvas>
+    <audio id="audio" src="assets/UNICORN.mp3"></audio>
+
+    <button id="play">Play</button>
+    <button id="pause">Pause</button>
+
+    <script src="js/main.js"></script>
+
+    <script>
+        let canvas = document.querySelector('#wrap');
+        let audio = document.querySelector('#audio');
+
+        let fre = new MusicFrequency(canvas, audio);
+        fre.drawSpectrum();
+
+        document.querySelector('#play').onclick = () => {
+            fre.audio.play();
+        }
+        
+        document.querySelector('#pause').onclick = () => {
+            fre.audio.pause();
+        }
+    </script>
+</body>
+
+</html>
